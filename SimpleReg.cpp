@@ -16,11 +16,15 @@ void SimpleReg::addTeam( const string tName, const string tColor, const int tyea
     (newPtr -> t).setColor(tColor);
     (newPtr -> t).setYear(tyear);
 
-    if(tyear < 1800 || tyear > 2020)
+    if(tyear < 1800 || tyear > 2020){
         cout << "Please enter a valid year"<<endl;
+        delete newPtr;
+        return;
+    }
     else if(cur != NULL)
     {
         cout << "Please enter a unique team!" << endl;
+        delete newPtr;
         return;
     }
     else if(head == NULL)
